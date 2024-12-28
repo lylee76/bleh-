@@ -28,7 +28,7 @@
 
         <div id="mobile">
             <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
+            <a class="active" href="#" class="fas fa-shopping-cart"></a>
             <a href="#" class="fas fa-user"></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
@@ -41,8 +41,116 @@
         <p>Save more with coupons & upto 70% off!</p>
     </section>
     <!--hero section ends here-->
-
+    <div class="container">
+        <div class="header">
+          
+        </div>
+    
+        <table class="cart-table" id="cart-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+            <!-- Cart items will be dynamically added here -->
+          </tbody>
+        </table>
+    
+        <div class="cart-total" id="cart-total">Total: $0</div>
+        <div id="empty-message" class="empty-cart" style="display: none;">Your cart is empty!</div>
+      </div>
+    
+      <script>
+        // Load the cart from localStorage
+        function loadCart() {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const cartBody = document.getElementById('cart-body');
+          const cartTotal = document.getElementById('cart-total');
+          const emptyMessage = document.getElementById('empty-message');
+    
+          // Clear the cart table body
+          cartBody.innerHTML = '';
+    
+          // Check if the cart is empty
+          if (cart.length === 0) {
+            cartTotal.style.display = 'none';
+            emptyMessage.style.display = 'block';
+            return;
+          }
+    
+          // Populate the cart table
+          let total = 0;
+          cart.forEach((item, index) => {
+            total += item.total;
+            cartBody.innerHTML += `
+              <tr>
+                <td><img src="${item.image}" alt="${item.name}"></td>
+                <td>${item.name}</td>
+                <td>$${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.total}</td>
+                <td>
+                  <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                </td>
+              </tr>
+            `;
+          });
+    
+          // Update total and display
+          cartTotal.style.display = 'block';
+          cartTotal.textContent = `Total: $${total}`;
+          emptyMessage.style.display = 'none';
+        }
+    
+        // Remove an item from the cart
+        function removeFromCart(index) {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          
+          // Remove the item at the specified index
+          cart.splice(index, 1);
+    
+          // Save the updated cart back to localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+    
+          // Reload the cart
+          loadCart();
+        }
+    
+        // Load the cart on page load
+        document.addEventListener('DOMContentLoaded', loadCart);
+      </script>
    
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply cupon</h3>
+            <div>
+                <input type="text" placeholder="Enter your Coupon">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <td><strong>Total</strong></td>
+                <td><strong>$335</strong></td>
+            </table>
+            <button class="" >Proceed to Checkout</button>
+        </div>
+    </section>
     
     <footer class="section-p1">
         <div class="col">
