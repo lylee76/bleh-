@@ -231,7 +231,10 @@ button.white{
 #product1{
     text-align: center;
 }
-
+#product1 .pro img {
+    width: 30%;
+    
+}
 #product1 .pro-container{
     display: flex;
     padding-top: 10px;
@@ -539,7 +542,7 @@ body {
     padding: 0;
   }
   .container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
   }
@@ -552,7 +555,7 @@ body {
     color: #4caf50;
   }
   .cart-table {
-    width: 100%;
+   width: 100%;
     border-collapse: collapse;
   }
   .cart-table th, .cart-table td {
