@@ -85,7 +85,7 @@ if(isset($_POST['submit']))
         $_SESSION['update'] ="<div class='success'>Failed to update admin</div>";
         header('location:'.SITEURL.'admin/update-admin.php?id='.$id);
     }
- 
+
 }
 ?>
 

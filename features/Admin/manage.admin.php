@@ -28,11 +28,26 @@
     }
 
     
-    if(isset($_SESSION['update']))
+    if(isset($_SESSION['user-not-found']))
     {
-        echo $_SESSION['update'];//displaying session message
-        unset($_SESSION['update']);//removing session messages
+        echo $_SESSION['user-not-found'];//displaying session message
+        unset($_SESSION['user-not-found']);//removing session messages
     }
+
+    if(isset($_SESSION['pwd-not-match']))
+    {
+        echo $_SESSION['pwd-not-match'];//displaying session message
+        unset($_SESSION['pwd-not-match']);//removing session messages
+    }
+
+    if(isset($_SESSION['pwd-change']))
+    {
+        echo $_SESSION['pwd-change'];//displaying session message
+        unset($_SESSION['pwd-change']);//removing session messages
+    }
+
+
+
 
     ?>
 

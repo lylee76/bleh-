@@ -11,6 +11,14 @@
     margin: 0 auto;
 }
 
+.error{
+    color: #ff6b81;
+}
+
+.success{
+    color:#7bed9f;
+}
+
 .text-center{
     text-align: center;
 }
