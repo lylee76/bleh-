@@ -6,7 +6,7 @@
     <h2>Manage product</h2>
     <br><br>
     <!-- button to add admin-->
-    <a href="#" class="btn-primary">Add Product</a>
+    <a href="<?php echo SITEURL;?>admin/add.product.php" class="btn-primary">Add Product</a>
     <br><br><br>
     
     <table class="tbl-full">
@@ -24,7 +24,7 @@
             <td>
                 <a href="#" class="btn-secondary"> Update Admin</a>
                 <a href="#" class="btn-danger"> Delete Admin</a>
-                Delete Admin
+                
             </td>
         </tr>
 
