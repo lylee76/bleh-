@@ -98,26 +98,31 @@ if(isset($_POST['submit']))
         //to upload the image we need image name,source path and destination path
         $image_name = $_FILES['image']['name'];
 
-        //auto rename the image
-        $ext = end(explode(':',$image_name));
-
-        //rename the image
-        $image_name = "category_".rand(000,999).'.'.$ext;
-
-        $source_path = $_FILES['image']['tmp_name'];
-        $destination_path = "../images/category/".$image_name;
-
-        //upload the image
-        $upload = move_uploaded_file($source_path,$destination_path);
-
-        //check whether the image is uploaded or not
-        //and if the image is not uploaded then we will stop the process and redirect with the error message
-        if($upload == false)
+        //upload image only if the image is selected
+        if($image_name!= "")
         {
-            //set message
-            $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
-            header('Location:'.SITEURL.'admin/add.category.php');
-            die(); //stop the process here and redirect to the page again with error message
+
+            //auto rename the image
+            $ext = end(explode(':',$image_name));
+
+            //rename the image
+            $image_name = "category_".rand(000,999).'.'.$ext;
+
+            $source_path = $_FILES['image']['tmp_name'];
+            $destination_path = "../images/category/".$image_name;
+
+            //upload the image
+            $upload = move_uploaded_file($source_path,$destination_path);
+
+            //check whether the image is uploaded or not
+            //and if the image is not uploaded then we will stop the process and redirect with the error message
+            if($upload == false)
+            {
+                //set message
+                $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
+                header('Location:'.SITEURL.'admin/add.category.php');
+                die(); //stop the process here and redirect to the page again with error message
+            }
         }
     }
     else
@@ -140,7 +145,7 @@ if(isset($_POST['submit']))
     else
     {
         //failed to add category
-        $_SESSION['add'] = "<div class='error'>Failed to category.</div>";
+        $_SESSION['add'] = "<div class='error'>Failed to add category.</div>";
         header('Location:'.SITEURL.'admin/add.category.php');
     }
 }
