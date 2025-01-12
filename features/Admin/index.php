@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Bloomify</title>
-        <link rel="stylesheet"  href="/css/admin.css">
+        <link rel="stylesheet"  href="/CSS/admin.css">
     </head>
     <body>
         
