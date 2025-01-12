@@ -17,7 +17,7 @@
             unset($_SESSION['upload']);//removing session messages
         }
     ?>
-        
+<br><br>
 <!--Add category form starts here-->
 <form action="" method="post" enctype="multipart/form-data">
     <table class="tbl-30">
