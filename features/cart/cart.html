@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloomify-Plant Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/features/home/style.css">
+</head>
+<body>
+    
+    <section id="header">
+        <a href="#" class="logo">BLOOMIFY</a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="/features/home/index.html">Home</a></li>
+                <li><a href="/features/product/product.html">Shop</a></li>
+                <li><a href="/features/Aboutus/about.html">About us</a></li>
+                <li><a href="/features/contact/contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a class="active" href="/features/cart/cart.html" ><i class="fas fa-shopping-cart"></i></a>
+            <a class="active" href="/features/user/user.html" ><i class="fas fa-user"></i></a>
+
+
+        <div id="mobile">
+            <a href="#" class="fas fa-heart"></a>
+            <a class="active" href="#" class="fas fa-shopping-cart"></a>
+            <a href="#" class="fas fa-user"></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    
+    </section>
+
+    <!--hero section starts here-->
+    <section id="page-header">
+        <h3>#Contact us</h3>
+        <p>Save more with coupons & upto 70% off!</p>
+    </section>
+    <!--hero section ends here-->
+    <div class="container">
+        <div class="header">
+          
+        </div>
+    
+        <table class="cart-table" id="cart-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Subtotal</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+            <!-- Cart items will be dynamically added here -->
+          </tbody>
+        </table>
+    
+        <div class="cart-total" id="cart-total">Total: $0</div>
+        <div id="empty-message" class="empty-cart" style="display: none;">Your cart is empty!</div>
+      </div>
+    
+      <script>
+        // Load the cart from localStorage
+        function loadCart() {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const cartBody = document.getElementById('cart-body');
+          const cartTotal = document.getElementById('cart-total');
+          const emptyMessage = document.getElementById('empty-message');
+    
+          // Clear the cart table body
+          cartBody.innerHTML = '';
+    
+          // Check if the cart is empty
+          if (cart.length === 0) {
+            cartTotal.style.display = 'none';
+            emptyMessage.style.display = 'block';
+            return;
+          }
+    
+          // Populate the cart table
+          let total = 0;
+          cart.forEach((item, index) => {
+            total += item.total;
+            cartBody.innerHTML += `
+              <tr>
+                <td><img src="${item.image}" alt="${item.name}"></td>
+                <td>${item.name}</td>
+                <td>$${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.total}</td>
+                <td>
+                  <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                </td>
+              </tr>
+            `;
+          });
+    
+          // Update total and display
+          cartTotal.style.display = 'block';
+          cartTotal.textContent = `Total: $${total}`;
+          emptyMessage.style.display = 'none';
+        }
+    
+        // Remove an item from the cart
+        function removeFromCart(index) {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          
+          // Remove the item at the specified index
+          cart.splice(index, 1);
+    
+          // Save the updated cart back to localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+    
+          // Reload the cart
+          loadCart();
+        }
+    
+        // Load the cart on page load
+        document.addEventListener('DOMContentLoaded', loadCart);
+      </script>
+   
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply cupon</h3>
+            <div>
+                <input type="text" placeholder="Enter your Coupon">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <td><strong>Total</strong></td>
+                <td><strong>$335</strong></td>
+            </table>
+            <button class="" >Proceed to Checkout</button>
+        </div>
+    </section>
+    
+    <footer class="section-p1">
+        <div class="col">
+            <a href="#" class="logo">BLOOMIFY</a>
+            <h5>Contact</h5>
+            <p><strong>Address:</strong>Bagbazar-4,Kathmandu Nepal</p>
+            <p><strong>Phone:</strong> 01-546854</p>
+            <p><strong>Email:</strong>  info@bloomify.com</p>
+            
+        </div>
+        <div class="col">
+            <h5>About us</h5>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms and conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h5>My Account</h5>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="follow">
+            <h5>Follow us</h5>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>©2024 Bloomify of Gurung and lylee. All rights reserved.
+
+            </p>
+        </div>
+
+
+
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

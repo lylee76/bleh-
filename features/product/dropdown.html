@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Signup</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* Main Content */
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    /* Button Styles */
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button.signup {
+      background-color: #2196f3;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* Card Design */
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container h1 {
+        font-size: 2rem;
+      }
+      .container p {
+        font-size: 1rem;
+      }
+      .button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Welcome to the Plant Shop
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h1>Get Started</h1>
+      <p>Login or Signup to explore the best plants for your home and garden.</p>
+      <a href="login.html" class="button login">Login</a>
+      <a href="signup.html" class="button signup">Signup</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2024 Plant Shop | All rights reserved.
+  </footer>
+</body>
+</html>
