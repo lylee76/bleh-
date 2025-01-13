@@ -1,4 +1,18 @@
 <?php include('partials/header.php'); ?>
+<html>
+    <head>
+        <title>Bloomify</title>
+        <link rel="stylesheet"  href="/css/admin.css">
+    </head>
+    <body>
+        
+<!-- Product section starts here-->
+<div class="product">
+    <div class="wrapper" >
+        Product goes here
+    </div>
+</div>
+<!-- Product section ends here-->
 
 <!-- Main content section starts here-->
 <div class="Main-content">
