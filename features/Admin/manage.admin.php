@@ -18,7 +18,36 @@
     {
         echo $_SESSION['delete'];//displaying session message
         unset($_SESSION['delete']);//removing session messages
+    
     }
+
+    if(isset($_SESSION['update']))
+    {
+        echo $_SESSION['update'];//displaying session message
+        unset($_SESSION['update']);//removing session messages
+    }
+
+    
+    if(isset($_SESSION['user-not-found']))
+    {
+        echo $_SESSION['user-not-found'];//displaying session message
+        unset($_SESSION['user-not-found']);//removing session messages
+    }
+
+    if(isset($_SESSION['pwd-not-match']))
+    {
+        echo $_SESSION['pwd-not-match'];//displaying session message
+        unset($_SESSION['pwd-not-match']);//removing session messages
+    }
+
+    if(isset($_SESSION['pwd-change']))
+    {
+        echo $_SESSION['pwd-change'];//displaying session message
+        unset($_SESSION['pwd-change']);//removing session messages
+    }
+
+
+
 
     ?>
 
@@ -67,7 +96,8 @@
                         <td><?php echo $full_name;?></td>
                         <td><?php echo $username;?></td>
                         <td>
-                            <a href="#" class="btn-secondary">Update Admin</a>
+                            <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
+                            <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-secondary">Update Admin</a>
                             <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
                         </td>
                     </tr>
@@ -76,15 +106,8 @@
 
                 }
             }
-    
-            
-        
-        
         }
         ?>
-
-        
-    
     </table>
     </div>
 </div>
