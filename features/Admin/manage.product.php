@@ -1,4 +1,3 @@
-
 <?php include('partials/header.php'); ?>
 
 <!-- Main content section starts here-->
@@ -35,7 +34,21 @@
                 echo $_SESSION['unauthorized'];//displaying session message
                 unset($_SESSION['unauthorized']);//removing session messages
             }
+
+            if(isset($_SESSION['remove-failed']))
+            {
+                echo $_SESSION['remove-failed'];//displaying session message
+                unset($_SESSION['remove-failed']);//removing session messages
+            }
+
+            if(isset($_SESSION['update']))
+            {
+                echo $_SESSION['update'];//displaying session message
+                unset($_SESSION['update']);//removing session messages
+            }
+
         ?>
+        <br>
     
     <table class="tbl-full">
         <tr>
